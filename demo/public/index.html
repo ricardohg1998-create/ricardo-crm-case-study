@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ricardo CRM · workflow demo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">r<span>·</span> <strong>Ricardo CRM</strong></a><span class="demo-label">FICTIONAL WORKSPACE</span><a class="source" href="https://github.com/ricardohg1998-create/ricardo-crm-case-study">Code & case study ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">RELATIONSHIPS, WITH CONTEXT</p><h1>From enquiry to next step.</h1><p class="lead">A shared workspace for people and assistants.<br>Explore a contact, move a conversation forward, see what changed.</p></div><div class="intro-action"><button id="handoff" class="primary">Run MCP handoff <span aria-hidden="true">↗</span></button><p>Creates a fictional enquiry through MCP. <br>Follow the result in the same workspace.</p></div></section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <section class="stats" aria-label="Workspace summary"><div><span id="contact-count">—</span><p>Contacts</p></div><div><span id="opportunity-count">—</span><p>Open opportunities</p></div><div><span id="task-count">—</span><p>Next steps</p></div><div><span id="mcp-count">—</span><p>MCP changes</p></div></section>
+    <div class="workspace">
+      <aside class="contacts-panel"><div class="panel-heading"><h2>Contacts</h2><button id="new-contact" class="small">+ Add contact</button></div><label class="search-label" for="search">Find a contact</label><input id="search" type="search" placeholder="Name or company"><div id="contacts" aria-label="Contacts"></div><p class="fixture-note">All names and companies are invented.<br>Changes reset when the server restarts.</p></aside>
+      <section id="detail" class="detail" aria-label="Contact workspace"><p>Loading workspace…</p></section>
+    </div>
+    <section class="audit-panel"><div class="panel-heading"><div><p class="eyebrow">ONE SHARED HISTORY</p><h2>Recent changes</h2></div><button id="refresh" class="small">Refresh workspace</button></div><div id="audit"></div></section>
+  </main>
+  <footer><span>Ricardo Huertas · CRM, marketing technology & automation</span><span>Local demo · no email transport</span></footer>
+  <dialog id="contact-dialog"><form id="contact-form"><div class="panel-heading"><h2>Add a fictional contact</h2><button type="button" id="close-dialog" class="small">Close</button></div><p>Use invented details and an email ending in <strong>.example</strong>.</p><label for="name">Name</label><input id="name" name="name" required maxlength="240" placeholder="Alex · fictional"><label for="company">Company</label><input id="company" name="company" maxlength="240" placeholder="Example Studio"><label for="email">Email</label><input id="email" name="email" type="email" required maxlength="320" placeholder="alex@studio.example" pattern=".+@[^@]+\.example"><button class="primary" type="submit">Create contact</button><p id="form-error" role="alert"></p></form></dialog>
+</body>
+</html>

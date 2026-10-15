@@ -4,6 +4,30 @@ I built a private CRM to manage contacts, opportunities, research, campaigns and
 
 **My role:** product design, fullstack development, data model, MCP integration and verification. **Stack:** TypeScript, React, Next.js/Vinext, Cloudflare Workers, D1/SQLite, Drizzle and the MCP SDK. Email integration uses SMTP and IMAP.
 
+## Run the workflow demo
+
+This repository includes an executable demo of contacts, opportunities, follow-up and shared web/MCP operations. Its domain code is extracted from my CRM; the interface and local SQLite adapter are made for this public example.
+
+Requires **Node.js 24+**. From the repository root:
+
+```sh
+npm ci
+npm start
+```
+
+Open **http://127.0.0.1:4318**. Select a contact, update an opportunity or add a next step. **Run MCP handoff** uses a real MCP client to create a fictional enquiry, opportunity, task and history note in the same workspace. It also retries the contact request to demonstrate idempotency.
+
+From a second terminal:
+
+```sh
+npm run demo:mcp
+npm test
+```
+
+The demo uses invented names and `.example` addresses in an in-memory database. Restarting restores the fixtures. [Demo architecture and extraction](demo/README.md).
+
+![Fictional CRM workspace after an MCP handoff](assets/crm-workflow-demo.jpg)
+
 ## The problem
 
 When several projects work with the same contact, separate lists quickly lose context. I wanted one relationship history, with project-specific opportunities and next actions, accessible both by a person in the browser and by an authorised assistant.
@@ -38,16 +62,14 @@ flowchart TD
 
 **Responses and opt-outs affect the workflow.** A reply stops the pending sequence. An opt-out applies to the shared contact. Importing history or synchronising a mailbox does not itself send a message.
 
-## Verification and current boundary
+## Verification and status
 
-The private project includes domain and simulated-transport tests for permissions, idempotency, cancellation, follow-up, budgets and delivery events, plus browser and MCP checks. Those tests do not prove real-world email delivery.
+The public suite checks the web/MCP workflow, idempotent retries, version conflicts, read-only permissions, shared opt-outs and the local HTTP boundary, alongside seven calendar-window tests. CI runs in three process timezones.
 
-The app and MCP interface are deployed privately. Manual execution is available; the application's own server timer remains pending as of 13 October 2026. This case does not describe an autonomous scheduled sending system as finished.
+The private project also includes domain and simulated-transport tests for cancellation, follow-up, budgets and delivery events, plus browser and MCP checks.
 
-## What is public here
+The application and MCP interface are deployed privately, with manual campaign execution. Native server scheduling is in development. The public demo covers relationship workflows and contains no email transport or production connection.
 
-This is an architecture and engineering case study. It contains no contact export, mailbox content, database or operational credentials. There is no public login or application installation in this repository.
-
-An isolated [calendar-window example](examples/README.md), adapted from my CRM budget helper, can be run with `npm test` on Node.js 24. It checks the timezone boundary used by daily budgets, including 23-hour and 25-hour days. It does not implement sending, permissions or database reservation.
+The isolated [calendar-window example](examples/README.md) checks Madrid daily budget boundaries, including 23-hour and 25-hour days.
 
 For another integration case, see [ConectaYa](https://github.com/ricardohg1998-create/conectaya-case-study).

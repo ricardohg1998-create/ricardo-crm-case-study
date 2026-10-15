@@ -1,8 +1,16 @@
 {
   "name": "ricardo-crm-engineering-case",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "engines": { "node": ">=24" },
-  "scripts": { "test": "node --test examples/madrid-window.test.mjs" }
+  "scripts": {
+    "start": "node --experimental-transform-types demo/server.mjs",
+    "demo:mcp": "node demo/client.mjs",
+    "test": "node --experimental-transform-types --test examples/madrid-window.test.mjs demo/tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.0",
+    "zod": "3.25.76"
+  }
 }

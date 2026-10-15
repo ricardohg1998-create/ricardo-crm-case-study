@@ -1,0 +1,78 @@
+{
+  "extractedOn": "2026-10-15",
+  "files": [
+    {
+      "file": "core/crm.ts",
+      "sourceSha256": "d9a7cdbae03169d31c18d7d493f5564e6700a1338622e94a84d97015306b889a",
+      "publishedSha256": "831a620f3051149fc52288029e417b6a464dfb625b259984a26d0b1dad2500d7",
+      "change": "prefix before authentication functions"
+    },
+    {
+      "file": "core/next-actions.ts",
+      "sourceSha256": "e1141cc5dd40f8f033f42b64c97f3be2b03b6e83e389e09c8d53f9a819a6c37a",
+      "publishedSha256": "e1141cc5dd40f8f033f42b64c97f3be2b03b6e83e389e09c8d53f9a819a6c37a",
+      "change": "unchanged"
+    },
+    {
+      "file": "core/prospect-contract.ts",
+      "sourceSha256": "4a86106f17362ad2e927e2e22a91d039a2fe26ab7ff33ce2de4ee64c58656d93",
+      "publishedSha256": "4a86106f17362ad2e927e2e22a91d039a2fe26ab7ff33ce2de4ee64c58656d93",
+      "change": "unchanged"
+    },
+    {
+      "file": "schema/0000_rapid_bloodstrike.sql",
+      "publishedSha256": "a8e647d36277eab5b4f48fc856cd9d113418b436409de5233bdfd4b360ae5a6f",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0001_amazing_roxanne_simpson.sql",
+      "publishedSha256": "d93cb0d687074585819070c4443917b114dd167db2642349efe09a315b9b40c2",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0002_mushy_gamma_corps.sql",
+      "publishedSha256": "b4383dfed5307493d28c9af33c0ce75976eba037e91f868fcec52da68ceb17e2",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0003_bizarre_genesis.sql",
+      "publishedSha256": "53dc3123484833e382638c0238e3f8c18f8ec3e382c7faf3e57bffc795550644",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0004_funny_omega_flight.sql",
+      "publishedSha256": "c53c9ff60d7a5c3ffd315fe67364edf4263bb2e253bb754897e3c3c03dff17a5",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0005_futuristic_human_robot.sql",
+      "publishedSha256": "ef1c2a57e26211bd0de57d7f332ab3fd222e99c7b6bc4d2712f7ab3ada16f894",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0006_warm_zombie.sql",
+      "publishedSha256": "b4191caac0f7c1d22cd9c361e92eb2a8f229b8ee001ec7ed683e07e7757abf7c",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0007_even_weapon_omega.sql",
+      "publishedSha256": "2cf6cab06b926a6fe6526949804d9f16440d933f984eab238239dab8a58190f0",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0008_campaigns_email.sql",
+      "publishedSha256": "3d35043eb2ed84391a7f26c25e5f4e653c32dd2829c2942b0f5e172bc9d1c892",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0009_email_archive.sql",
+      "publishedSha256": "31885af65a0f51b9be547e81bba8a65294d0bcbb4fda25dfa42b121837bcef99",
+      "change": "schema only; unchanged"
+    },
+    {
+      "file": "schema/0010_mail_operations.sql",
+      "publishedSha256": "5ac9aab81803bd0d949d51012d206b24fd920b4ea1a6c55f88fb332469d4f3b0",
+      "change": "schema only; unchanged"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+ALTER TABLE campaigns ADD COLUMN daily_limit integer NOT NULL DEFAULT 100 CHECK(daily_limit BETWEEN 1 AND 1000);
+ALTER TABLE campaigns ADD COLUMN contacted_stage text;
+ALTER TABLE email_messages ADD COLUMN delivery_status text NOT NULL DEFAULT '';
+ALTER TABLE email_messages ADD COLUMN delivery_detail text NOT NULL DEFAULT '';
+ALTER TABLE email_messages ADD COLUMN delivery_updated_at text NOT NULL DEFAULT '';
+DROP INDEX email_member_step;
+CREATE UNIQUE INDEX email_member_step ON email_messages(member_id,step_id) WHERE step_id IS NOT NULL AND status<>'cancelled';
+CREATE TABLE mail_settings(mailbox_id text PRIMARY KEY NOT NULL,daily_limit integer NOT NULL DEFAULT 100 CHECK(daily_limit BETWEEN 1 AND 1000),version integer NOT NULL DEFAULT 1,updated_at text NOT NULL);
+CREATE TABLE mail_attempts(id text PRIMARY KEY NOT NULL,message_id text NOT NULL REFERENCES email_messages(id),mailbox_id text NOT NULL,campaign_id text REFERENCES campaigns(id),day text NOT NULL,status text NOT NULL CHECK(status IN ('reserved','sent','failed','uncertain')),claimed_at text NOT NULL);
+CREATE INDEX mail_attempts_mailbox_day ON mail_attempts(mailbox_id,day,status);
+CREATE INDEX mail_attempts_campaign_day ON mail_attempts(campaign_id,day,status);
+CREATE INDEX mail_attempts_message ON mail_attempts(message_id);
+CREATE TABLE mail_address_blocks(email text PRIMARY KEY NOT NULL,reason text NOT NULL,source_message_id text NOT NULL,blocked_at text NOT NULL);
